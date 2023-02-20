@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root{
+    --light-tema:hsl(0, 0%, 98%);
+    --dark-tema:hsl(235, 21%, 11%);
+    --list-dark:hsl(235, 24%, 19%);
+    --paragrafo-dark:hsl(234, 11%, 52%);
+
+}
+
+body{
+    background-color: var(--dark-tema);
+}
+
+.light{
+    background-color: var(--light-tema);
+}
+
+h1{
+    font-weight: 700;
+    color: var(--light-tema);
+}
+
+header{
+    background-image: url(/images/bg-desktop-dark.jpg);
+    height: 300px;
+}
+
+.light header{
+    background-image: url(/images/bg-desktop-light.jpg);
+}
+
+#titulo{
+    width: 500px;
+    display: flex;    
+    justify-content: space-between;
+    align-items: last baseline;
+    margin: auto;   
+    padding-top: 50px;
+}
+
+img{
+    flex: none;
+    width: 16px;
+    height: 16px;
+}
+
+.light img{
+
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+.sol{
+    display: block;
+}
+.lua{
+    display: none;
+}
+
+.light .sol{
+    display: none;
+}
+
+.light .lua{
+    display: block;
+}
+
+
+.list{
+    display: flex;
+    width: 500px;
+    margin: auto;
+    background-color: var(--list-dark);
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 6px;
+}
+
+.light .list{
+    background-color: var(--light-tema);
+}
+
+.checkbox-wrapper{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 0.5px solid var(--paragrafo-dark);  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    color: transparent;
+    
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+#meuCheckbox{
+    display: none;
+}
+
+
+
+
+.inputTodo {
+    margin-left: 10px;
+    color: var(--paragrafo-dark);
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+footer { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+footer a { 
+    color: hsl(228, 45%, 44%); 
+}
