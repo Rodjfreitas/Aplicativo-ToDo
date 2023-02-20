@@ -25,6 +25,7 @@ body{
 h1{
     font-weight: 700;
     color: var(--light-tema);
+    letter-spacing: 10px;
 }
 
 header{
