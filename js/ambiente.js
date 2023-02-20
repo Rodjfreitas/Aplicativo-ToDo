@@ -14,11 +14,11 @@ imagemlua.addEventListener('click', function(){
 function checkedInput(){
     const checkbox = document.querySelector("#meuCheckbox")
     const caixaSelecao = document.querySelector('.checkbox-wrapper')
-    const label = document.querySelector('label')
+    const label = document.querySelector('.labelMain')
     if(checkbox.checked == true){        
         label.style.content = "\2713"
-        label.style.color = "white"
-        caixaSelecao.style.backgroundColor = "blue"
+        label.style.color = "var(--light-tema)"
+        caixaSelecao.style.backgroundColor = "var(--global-check)"
     }else{
         label.style.content = "\u2713"
         label.style.color = "transparent"

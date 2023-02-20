@@ -10,6 +10,7 @@
     --dark-tema:hsl(235, 21%, 11%);
     --list-dark:hsl(235, 24%, 19%);
     --paragrafo-dark:hsl(234, 11%, 52%);
+    --global-check:hsl(280, 87%, 65%);
 
 }
 
@@ -94,12 +95,16 @@ img:hover{
     height: 20px;
     border: 0.5px solid var(--paragrafo-dark);  
     display: flex;
-    justify-content: center;
+    justify-content: first center;
     align-items: center;
+
 }
 
 label{
     color: transparent;
+    padding: 4px;
+    font-size: 13px;
+    font-weight: 700;
     
 }
 
