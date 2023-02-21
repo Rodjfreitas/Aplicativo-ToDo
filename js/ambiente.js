@@ -19,11 +19,10 @@ imagemlua.addEventListener('click', function(){
 
 
 function checkedInput(){
-    const checkbox = document.querySelector(".meuCheckbox")
+    const checkbox = document.querySelector("#meuCheckbox")
     const caixaSelecao = document.querySelector('.checkbox-wrapper')
     const label = document.querySelector('label')
-    if(checkbox.checked == true){        
-        label.style.content = "\2713"
+    if(checkbox.checked == true){
         label.style.color = "var(--light-tema)"
         caixaSelecao.style.backgroundColor = "var(--global-check)"
     }else{
@@ -40,27 +39,27 @@ function createDivs(){
     const checkCaixa = document.querySelector('#meuCheckbox')
     const inputText = document.querySelector('.inputTodo')    
     const caixa = document.createElement('div')
-    caixa.setAttribute('class','minhas-divs')
+    caixa.setAttribute('class',`minhas-divs div${x}`)
 
     if(checkCaixa.checked == true){
         if(inputText.value != ""){
 
             const chk = document.createElement('div')
-            chk.setAttribute('class','checkbox-wrapper')
+            chk.setAttribute('class',`checkbox-wrapper num${x}`)
             
 
             const selecao = document.createElement('input')
             selecao.setAttribute('id',`meuCheckbox-${x}`)
             selecao.setAttribute('class','meuCheckbox')
             selecao.setAttribute('type','checkbox')
-            selecao.setAttribute('onchange','checkedInput()')
+            selecao.setAttribute('onclick','colorirOption()')
 
             
 
             const textLabel = document.createElement('label')
             textLabel.setAttribute('class',`labelMain`)
             textLabel.setAttribute('for',`meuCheckbox-${x}`)
-            textLabel.value = "&#x2713"
+            textLabel.content = "&#x2713"
             
             x++
 
@@ -75,7 +74,7 @@ function createDivs(){
             caixa.appendChild(textoInput)
             arrayDeDivs.push(caixa)
 
-            const secaoMain = document.querySelector('section')
+            const secaoMain = document.querySelector('#secaoMain')
             secaoMain.appendChild(caixa)
 
             checkCaixa.checked = false
@@ -95,6 +94,7 @@ function createDivs(){
 
 
 function colorirLabel(){
+    const divLabels = document.querySelector('.textOpt')
     var labels = document.getElementsByTagName('label')
 
     for(var i = 0; i < labels.length; i++){
@@ -108,6 +108,33 @@ function colorirLabel(){
 
 
 }
+
+function colorirOption(){
+    var mydivs = document.querySelector(`#secaoMain`)
+    var labels = mydivs.getElementsByTagName('label')
+    
+    for(var i = 0; i < labels.length; i++){
+        const opt = document.querySelector(`.num${i}`)
+        var input = document.getElementById(labels[i].htmlFor)
+
+        const divSet = document.querySelector(`.div${i}`)
+        var paragraphText = divSet.querySelector('p')
+
+        if(input.checked){            
+            opt.style.backgroundColor = "var(--global-check)"
+            labels[i].style.color = "var(--light-tema)"
+            paragraphText.style.textDecoration = "line-through"
+        }else{
+            opt.style.backgroundColor = ""
+            labels[i].style.color = ""
+            paragraphText.style.textDecoration = ""
+        }
+    }  
+
+
+}
+
+
 
 
     

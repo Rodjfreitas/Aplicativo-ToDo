@@ -23,6 +23,7 @@ body{
 
 .light{
     background-color: var(--light-tema);
+    
 }
 
 p{
@@ -40,11 +41,11 @@ header{
     height: 300px;
 }
 
-section{
+section,#secaoMain{
     margin: auto;
     width: 500px;
     position: relative;
-    top: -60px;
+    top: -30px;
 }
 
 .light header{
@@ -112,12 +113,17 @@ img:hover{
 
 .resume{
     justify-content: space-between;
+    align-items: center;
     margin-top: -60px;
     display: none;
 }
 
 .resume p, .resume label{
     color: var(--paragrafo-dark);
+}
+
+.resume label:hover{
+    cursor: pointer;
 }
 
 .textOpt{
@@ -162,9 +168,6 @@ input[type="radio"]{
     display: none;
 }
 
-.filter{
-    color: black;
-}
 
 
 
@@ -184,6 +187,7 @@ input[type="radio"]{
 footer { 
     font-size: 11px; 
     text-align: center; 
+    color: var(--paragrafo-dark);
 }
 
 footer a { 
@@ -200,7 +204,7 @@ footer a {
         height: 200px;       
     }
 
-    section{
+    section,#secaoMain{
         width: 300px;
     }
     
