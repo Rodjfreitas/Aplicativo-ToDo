@@ -1,8 +1,12 @@
 const imagemsol = document.querySelector('.sol')
 const imagemlua = document.querySelector('.lua')
 const divs = document.querySelectorAll('.minhas-divs')
+const resumo = document.querySelector('.resume')
 var arrayDeDivs = []
 let x = 0
+
+
+
 
 imagemsol.addEventListener('click', function(){
     document.body.classList.toggle('light')
@@ -77,7 +81,7 @@ function createDivs(){
             checkCaixa.checked = false
             inputText.value = ""
 
-            
+            mostrarResumo()
 
         }else{
         alert('Adicione uma tarefa antes de clicar.')
@@ -88,8 +92,31 @@ function createDivs(){
 }
 
 
-    
 
+function colorirLabel(){
+    var labels = document.getElementsByTagName('label')
+
+    for(var i = 0; i < labels.length; i++){
+        var input = document.getElementById(labels[i].htmlFor)
+        if(input.checked){
+            labels[i].style.color = "var(--label-selected)"
+        }else{
+            labels[i].style.color = ""
+        }
+    }  
+
+
+}
+
+
+    
+function mostrarResumo(){
+    if(arrayDeDivs.length > 0){
+        resumo.style.display = "flex"
+    }else{
+        resumo.style.display = "flex"
+    }
+}
         
 
 

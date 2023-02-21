@@ -13,6 +13,7 @@
     --global-check:hsl(280, 87%, 65%);
     --global-border-botton:hsl(235, 19%, 35%);
     --light-border-botton:hsl(236, 9%, 61%);
+    --label-selected:hsl(220, 98%, 61%);
 
 }
 
@@ -90,7 +91,7 @@ img:hover{
 }
 
 
-.list,.minhas-divs{
+.list,.minhas-divs,.resume{
     display: flex;
     width: 500px;
     margin: auto;
@@ -104,9 +105,30 @@ img:hover{
 }
 
 
-.light .list, .light .minhas-divs{
+.light .list, .light .minhas-divs, .light .resume{
     background-color: var(--light-tema);
     border-bottom: 0.5px solid var(--light-border-botton);
+}
+
+.resume{
+    justify-content: space-between;
+    margin-top: -60px;
+    display: none;
+}
+
+.resume p, .resume label{
+    color: var(--paragrafo-dark);
+}
+
+.textOpt{
+    display: flex;
+}
+.textOpt p{
+    padding: 0px 5px;
+}
+
+.textOpt p:hover{
+    cursor: pointer;
 }
 
 .checkbox-wrapper{
@@ -135,6 +157,16 @@ label:hover{
 input[type= "checkbox"]{
     display: none;
 }
+
+input[type="radio"]{
+    display: none;
+}
+
+.filter{
+    color: black;
+}
+
+
 
 
 
