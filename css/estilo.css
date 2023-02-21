@@ -12,6 +12,7 @@
     --paragrafo-dark:hsl(234, 11%, 52%);
     --global-check:hsl(280, 87%, 65%);
     --global-border-botton:hsl(235, 19%, 35%);
+    --light-border-botton:hsl(236, 9%, 61%);
 
 }
 
@@ -102,8 +103,10 @@ img:hover{
     border-bottom: 0.5px solid var(--global-border-botton);
 }
 
+
 .light .list, .light .minhas-divs{
     background-color: var(--light-tema);
+    border-bottom: 0.5px solid var(--light-border-botton);
 }
 
 .checkbox-wrapper{
@@ -167,7 +170,6 @@ footer a {
 
     section{
         width: 300px;
-        border: 1px solid black;
     }
     
     .light header{
@@ -176,11 +178,11 @@ footer a {
 
     #titulo{
         width: 300px;
-        padding-top: 30px;
-        padding-bottom: 50px;
+        padding-top: 20px;
+        padding-bottom: 40px;
     }
 
-    .list{
+    .list,.minhas-divs{
         width: 300px;
     }
 
