@@ -1,7 +1,7 @@
 const imagemsol = document.querySelector('.sol')
 const imagemlua = document.querySelector('.lua')
 const divs = document.querySelectorAll('.minhas-divs')
-const arrayDeDivs = []
+var arrayDeDivs = []
 let x = 0
 
 imagemsol.addEventListener('click', function(){
@@ -43,10 +43,6 @@ function createDivs(){
 
             const chk = document.createElement('div')
             chk.setAttribute('class','checkbox-wrapper')
-
-
-            
-
             
 
             const selecao = document.createElement('input')
@@ -73,6 +69,7 @@ function createDivs(){
             chk.appendChild(selecao)
             caixa.appendChild(chk)
             caixa.appendChild(textoInput)
+            arrayDeDivs.push(caixa)
 
             const secaoMain = document.querySelector('section')
             secaoMain.appendChild(caixa)
@@ -80,19 +77,23 @@ function createDivs(){
             checkCaixa.checked = false
             inputText.value = ""
 
-            for(let i = 0; i < divs.length; i++){
-                arrayDeDivs.push(divs[i])
             
-            }
 
         }else{
         alert('Adicione uma tarefa antes de clicar.')
         checkCaixa.checked = false
         }
     }
-
+    console.log(arrayDeDivs)
 }
 
 
+    
 
-console.log(arrayDeDivs)
+        
+
+
+
+
+
+
