@@ -11,6 +11,7 @@
     --list-dark:hsl(235, 24%, 19%);
     --paragrafo-dark:hsl(234, 11%, 52%);
     --global-check:hsl(280, 87%, 65%);
+    --global-border-botton:hsl(235, 19%, 35%);
 
 }
 
@@ -22,6 +23,10 @@ body{
     background-color: var(--light-tema);
 }
 
+p{
+    font-size: 13px;
+}
+
 h1{
     font-weight: 700;
     color: var(--light-tema);
@@ -31,6 +36,13 @@ h1{
 header{
     background-image: url(/images/bg-desktop-dark.jpg);
     height: 300px;
+}
+
+section{
+    margin: auto;
+    width: 500px;
+    position: relative;
+    top: -60px;
 }
 
 .light header{
@@ -77,7 +89,7 @@ img:hover{
 }
 
 
-.list{
+.list,.minhas-divs{
     display: flex;
     width: 500px;
     margin: auto;
@@ -86,7 +98,11 @@ img:hover{
     border-radius: 6px;
 }
 
-.light .list{
+.minhas-divs{
+    border-bottom: 0.5px solid var(--global-border-botton);
+}
+
+.light .list, .light .minhas-divs{
     background-color: var(--light-tema);
 }
 
@@ -113,7 +129,7 @@ label:hover{
     cursor: pointer;
 }
 
-#meuCheckbox{
+input[type= "checkbox"]{
     display: none;
 }
 
@@ -147,6 +163,11 @@ footer a {
     header{
         background-image: url(/images/bg-mobile-dark.jpg); 
         height: 200px;       
+    }
+
+    section{
+        width: 300px;
+        border: 1px solid black;
     }
     
     .light header{
