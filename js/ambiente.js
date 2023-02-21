@@ -60,7 +60,7 @@ function createDivs(){
             const textLabel = document.createElement('label')
             textLabel.setAttribute('class',`labelMain`)
             textLabel.setAttribute('for',`meuCheckbox-${x}`)
-            textLabel.innerText = "&#x2713"
+            textLabel.value = "&#x2713"
             
             x++
 
@@ -82,6 +82,7 @@ function createDivs(){
             inputText.value = ""
 
             mostrarResumo()
+            atualizarResume()
 
         }else{
         alert('Adicione uma tarefa antes de clicar.')
@@ -116,6 +117,12 @@ function mostrarResumo(){
     }else{
         resumo.style.display = "flex"
     }
+}
+
+function atualizarResume(){
+    let qtdItens = document.querySelector('.qtdResumo')
+
+    qtdItens.innerText = `${arrayDeDivs.length} items left`
 }
         
 
