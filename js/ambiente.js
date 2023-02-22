@@ -7,7 +7,7 @@ let x = 0
 
 
 
-
+//Os dois eventos abaixo são responsáveis pela alteração de temas
 imagemsol.addEventListener('click', function(){
     document.body.classList.toggle('light')
     
@@ -17,7 +17,7 @@ imagemlua.addEventListener('click', function(){
     
 })
 
-
+//Esta função estiliza o circulo da caixa principal
 function checkedInput(){
     const checkbox = document.querySelector("#meuCheckbox")
     const caixaSelecao = document.querySelector('.checkbox-wrapper')
@@ -34,7 +34,7 @@ function checkedInput(){
 
 
 
-
+//Esta função é responsável por criar os elementos de tarefas adicionados
 function createDivs(){
     const checkCaixa = document.querySelector('#meuCheckbox')
     const inputText = document.querySelector('.inputTodo')    
@@ -59,7 +59,7 @@ function createDivs(){
             const textLabel = document.createElement('label')
             textLabel.setAttribute('class',`labelMain`)
             textLabel.setAttribute('for',`meuCheckbox-${x}`)
-            textLabel.value = "&#x2713"
+            textLabel.content = "\u2713"
             
             x++
 
@@ -89,14 +89,14 @@ function createDivs(){
         inputText.focus()
         }
     }
-    console.log(arrayDeDivs)
+    
 }
 
 
-
+//Esta função atribui uma cor para uma dos filtros selecionados no rodapé da página
 function colorirLabel(){
     const divLabels = document.querySelector('.textOpt')
-    var labels = document.getElementsByTagName('label')
+    var labels = divLabels.getElementsByTagName('label')
 
     for(var i = 0; i < labels.length; i++){
         var input = document.getElementById(labels[i].htmlFor)
@@ -110,6 +110,7 @@ function colorirLabel(){
 
 }
 
+//Esta função atribui um estilo para quando clica no circulo de alguma tarefa inserida
 function colorirOption(){
     var mydivs = document.querySelector(`#secaoMain`)
     var labels = mydivs.getElementsByTagName('label')
@@ -139,15 +140,16 @@ function colorirOption(){
 
 
 
-    
+//Esta função mostra o resumo com as opções de filtros caso exista alguma tarefa inserida   
 function mostrarResumo(){
     if(arrayDeDivs.length > 0){
         resumo.style.display = "flex"
     }else{
-        resumo.style.display = "flex"
+        resumo.style.display = "none"
     }
 }
 
+//Esta função atualiza a quantidade total de itens adicionados à lista
 function atualizarResume(){
     let qtdItens = document.querySelector('.qtdResumo')
 

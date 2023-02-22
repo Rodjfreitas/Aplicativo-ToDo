@@ -122,18 +122,17 @@ img:hover{
     color: var(--paragrafo-dark);
 }
 
-.resume label:hover{
-    cursor: pointer;
-}
+
 
 .textOpt{
     display: flex;
 }
-.textOpt p{
+.textOpt label{
     padding: 0px 5px;
+    font-size: 15px;
 }
 
-.textOpt p:hover{
+.filter:hover{
     cursor: pointer;
 }
 
@@ -148,7 +147,7 @@ img:hover{
 
 }
 
-label{
+.checkbox-wrapper label{
     color: transparent;
     padding: 4px;
     font-size: 13px;
@@ -165,13 +164,8 @@ input[type= "checkbox"]{
 }
 
 input[type="radio"]{
-    display: none;
+    display: block;
 }
-
-
-
-
-
 
 
 .inputTodo {
@@ -218,8 +212,12 @@ footer a {
         padding-bottom: 40px;
     }
 
-    .list,.minhas-divs{
+    .list,.minhas-divs,.resume{
         width: 300px;
+    }
+
+    .resume p, .resume label{
+        font-size: 10px;
     }
 
 }
