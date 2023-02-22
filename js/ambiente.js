@@ -95,7 +95,7 @@ function createDivs(){
 
 //Esta função atribui uma cor para uma dos filtros selecionados no rodapé da página
 function colorirLabel(){
-    const divLabels = document.querySelector('.textOpt')
+    const divLabels = document.querySelector('.resume')
     var labels = divLabels.getElementsByTagName('label')
 
     for(var i = 0; i < labels.length; i++){
@@ -109,6 +109,7 @@ function colorirLabel(){
 
 
 }
+
 
 //Esta função atribui um estilo para quando clica no circulo de alguma tarefa inserida
 function colorirOption(){
@@ -143,7 +144,7 @@ function colorirOption(){
 //Esta função mostra o resumo com as opções de filtros caso exista alguma tarefa inserida   
 function mostrarResumo(){
     if(arrayDeDivs.length > 0){
-        resumo.style.display = "flex"
+        resumo.style.display = "grid"
     }else{
         resumo.style.display = "none"
     }

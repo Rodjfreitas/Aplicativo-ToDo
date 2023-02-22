@@ -26,6 +26,7 @@ body{
     
 }
 
+
 p{
     font-size: 13px;
 }
@@ -68,9 +69,6 @@ img{
     height: 16px;
 }
 
-.light img{
-
-}
 
 img:hover{
     cursor: pointer;
@@ -116,6 +114,7 @@ img:hover{
     align-items: center;
     margin-top: -60px;
     display: none;
+    grid-template-columns: 1fr 3fr 1fr;
 }
 
 .resume p, .resume label{
@@ -123,10 +122,6 @@ img:hover{
 }
 
 
-
-.textOpt{
-    display: flex;
-}
 .textOpt label{
     padding: 0px 5px;
     font-size: 15px;
@@ -164,7 +159,7 @@ input[type= "checkbox"]{
 }
 
 input[type="radio"]{
-    display: block;
+    opacity: 0;
 }
 
 
