@@ -82,8 +82,7 @@ function createDivs(){
             checkCaixa.checked = false
             inputText.value = ""
 
-            mostrarResumo()
-            atualizarResume()            
+            mostrarResumo()            
             verificarChecked()
 
         }else{
@@ -177,6 +176,99 @@ function verificarChecked(){
     } 
 
 }
+
+function filtros(opcoes){
+    if(opcoes.checked){
+        return true
+    }else{
+        return false
+    }
+}
+
+//selecionando a opção de filtro Todos
+function filtrandoTudo(){
+    let filterAll = document.querySelector('#filterAll')
+    if(filtros(filterAll)){
+
+        var mydivs = document.querySelector(`#secaoMain`)
+        var labels = mydivs.getElementsByTagName('label')
+        
+        for(var i = 0; i < labels.length; i++){
+            const tarefa = document.querySelector(`.div${i}`)
+            var input = document.getElementById(labels[i].htmlFor)
+    
+            if(input.checked){            
+                tarefa.style.display = "flex"
+            }else{
+                tarefa.style.display = "flex"
+            }
+        } 
+
+    }
+    //atualiza a contagem
+    verificarChecked()
+ 
+}
+
+
+//selecionando a opção de filtro Ativos
+function filtrandoAtivos(){
+    let filterAct = document.querySelector('#filterAct')
+    if(filtros(filterAct)){
+
+        var mydivs = document.querySelector(`#secaoMain`)
+        var labels = mydivs.getElementsByTagName('label')
+        
+        
+        for(var i = 0; i < labels.length; i++){
+            const tarefa = document.querySelector(`.div${i}`)
+            var input = document.getElementById(labels[i].htmlFor)
+    
+            if(input.checked){            
+                tarefa.style.display = "none"
+                
+            }else{
+                tarefa.style.display = "flex"
+                
+            }
+        } 
+
+    }
+    //atualiza a contagem
+    verificarChecked()
+ 
+}
+
+//selecionando a opção de filtro completos
+function filtrandoCompletos(){
+    let filterCom = document.querySelector('#filterCom')
+    let qtdItens = document.querySelector('.qtdResumo')
+    if(filtros(filterCom)){
+
+        var mydivs = document.querySelector(`#secaoMain`)
+        var labels = mydivs.getElementsByTagName('label')
+        var contagem = 0
+        
+        for(var i = 0; i < labels.length; i++){
+            const tarefa = document.querySelector(`.div${i}`)
+            var input = document.getElementById(labels[i].htmlFor)
+    
+            if(input.checked){            
+                tarefa.style.display = "flex"
+                contagem++
+            }else{
+                tarefa.style.display = "none"
+            }
+        } 
+
+    }
+
+    //atualiza a contagem (neste caso apenas os itens que foram marcados)    
+    qtdItens.innerText = `${Number(contagem)} items completed`
+ 
+}
+
+
 
 
 

@@ -42,9 +42,9 @@
   <div class="resume">
     <p class="qtdResumo">items left</p>
     <div class="textOpt">
-      <input type="radio" name="select" id="filterAll" onclick="colorirLabel()" checked>
-      <input type="radio" name="select" id="filterAct" onclick="colorirLabel()">
-      <input type="radio" name="select" id="filterCom" onclick="colorirLabel()">
+      <input type="radio" name="select" id="filterAll" onclick="colorirLabel()" onchange="filtrandoTudo()">
+      <input type="radio" name="select" id="filterAct" onclick="colorirLabel()" onchange="filtrandoAtivos()">
+      <input type="radio" name="select" id="filterCom" onclick="colorirLabel()" onchange="filtrandoCompletos()">
       <label class="filter" for="filterAll">All</label>
       <label class="filter" for="filterAct">Active</label>
       <label class="filter" for="filterCom">Complete</label>
