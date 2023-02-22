@@ -120,12 +120,17 @@ img:hover{
 
 .resume p, .resume label{
     color: var(--paragrafo-dark);
+    font-size: 13px;
 }
 
 
 .textOpt label{
     padding: 0px 5px;
     font-size: 15px;
+}
+
+.textOpt{
+    margin-left: -50px;
 }
 
 .filter:hover{
@@ -195,7 +200,7 @@ footer a {
     }
 
     section,#secaoMain{
-        width: 300px;
+        width: 320px;
     }
     
     .light header{
@@ -203,17 +208,17 @@ footer a {
     }
 
     #titulo{
-        width: 300px;
+        width: 320px;
         padding-top: 20px;
         padding-bottom: 40px;
     }
 
     .list,.minhas-divs,.resume{
-        width: 300px;
+        width: 320px;
     }
 
     .resume p, .resume label{
-        font-size: 10px;
+        font-size: 9px;
     }
 
 }
