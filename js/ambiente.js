@@ -7,6 +7,8 @@ let x = 0
 
 
 
+
+
 //Os dois eventos abaixo são responsáveis pela alteração de temas
 imagemsol.addEventListener('click', function(){
     document.body.classList.toggle('light')
@@ -81,7 +83,8 @@ function createDivs(){
             inputText.value = ""
 
             mostrarResumo()
-            atualizarResume()
+            atualizarResume()            
+            verificarChecked()
 
         }else{
         alert('Adicione uma tarefa antes de clicar.')
@@ -135,6 +138,7 @@ function colorirOption(){
         }
     }  
 
+    verificarChecked()
 
 }
 
@@ -151,12 +155,28 @@ function mostrarResumo(){
 }
 
 //Esta função atualiza a quantidade total de itens adicionados à lista
-function atualizarResume(){
-    let qtdItens = document.querySelector('.qtdResumo')
-
-    qtdItens.innerText = `${arrayDeDivs.length} items left`
+function atualizarResume(n){    
+    let qtdItens = document.querySelector('.qtdResumo')    
+    qtdItens.innerText = `${Number(arrayDeDivs.length - n)} items left`
 }
+
+   
+//função que adiciona um valor de contagem para ser subtraido do total de itens quando um item for checked
+function verificarChecked(){
+    var mydivs = document.querySelector(`#secaoMain`)
+    var labels = mydivs.getElementsByTagName('label')
+    var contagem = 0
+    for(var i = 0; i < labels.length; i++){
+        var input = document.getElementById(labels[i].htmlFor)        
         
+
+        if(input.checked){            
+            contagem++            
+        }
+        atualizarResume(contagem)
+    } 
+
+}
 
 
 
