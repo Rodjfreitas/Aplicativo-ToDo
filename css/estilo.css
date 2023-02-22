@@ -139,8 +139,8 @@ img:hover{
 
 .checkbox-wrapper{
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border: 0.5px solid var(--paragrafo-dark);  
     display: flex;
     justify-content: first center;

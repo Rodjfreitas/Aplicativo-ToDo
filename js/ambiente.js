@@ -59,7 +59,7 @@ function createDivs(){
             const textLabel = document.createElement('label')
             textLabel.setAttribute('class',`labelMain`)
             textLabel.setAttribute('for',`meuCheckbox-${x}`)
-            textLabel.content = "&#x2713"
+            textLabel.value = "&#x2713"
             
             x++
 
@@ -86,6 +86,7 @@ function createDivs(){
         }else{
         alert('Adicione uma tarefa antes de clicar.')
         checkCaixa.checked = false
+        inputText.focus()
         }
     }
     console.log(arrayDeDivs)
@@ -123,6 +124,7 @@ function colorirOption(){
         if(input.checked){            
             opt.style.backgroundColor = "var(--global-check)"
             labels[i].style.color = "var(--light-tema)"
+            console.log(labels[i].value)
             paragraphText.style.textDecoration = "line-through"
         }else{
             opt.style.backgroundColor = ""
