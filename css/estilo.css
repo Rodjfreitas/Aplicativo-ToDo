@@ -112,7 +112,8 @@ img:hover{
 .resume{
     justify-content: space-between;
     align-items: center;
-    margin-top: -60px;
+    position: relative;
+    top: -60px;
     display: none;
     grid-template-columns: 1fr 3fr 1fr;
 }

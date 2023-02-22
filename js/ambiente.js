@@ -144,7 +144,7 @@ function colorirOption(){
 //Esta função mostra o resumo com as opções de filtros caso exista alguma tarefa inserida   
 function mostrarResumo(){
     if(arrayDeDivs.length > 0){
-        resumo.style.display = "grid"
+        resumo.style.display = "flex"
     }else{
         resumo.style.display = "none"
     }
