@@ -130,7 +130,6 @@ function colorirOption(){
         if(input.checked){            
             opt.style.backgroundColor = "var(--global-check)"
             labels[i].style.color = "var(--light-tema)"
-            console.log(labels[i].value)
             paragraphText.style.textDecoration = "line-through"
         }else{
             opt.style.backgroundColor = ""
@@ -179,6 +178,7 @@ function verificarChecked(){
 
 }
 
+//Parâmetro para as opções de filtros
 function filtros(opcoes){
     if(opcoes.checked){
         return true
@@ -270,6 +270,34 @@ function filtrandoCompletos(){
  
 }
 
+
+function ClearChecked(){
+
+    var mydivs = document.querySelector(`#secaoMain`)
+    var labels = mydivs.getElementsByTagName('label')
+    var checados = [] 
+    
+    //faz o levantamento dos índices de quais itens foram marcados e os coloca em um array
+    for(var i = 0; i < labels.length; i++){
+        
+        var input = document.getElementById(labels[i].htmlFor)  
+             
+
+        if(input.checked){ 
+            checados.push(i)
+                                             
+        } 
+    } 
+    //exclui todos os itens marcados através dos índices indicados no array
+    for(var i = 0; i < checados.length;i++){
+        var j = checados[i]
+        const tarefa = mydivs.querySelector(`.div${j}`)
+        tarefa.style.visibility = "none"
+    }
+
+    
+
+}
 
 
 

@@ -135,6 +135,12 @@ img:hover{
 
 .filter:hover{
     cursor: pointer;
+    
+}
+
+.clearText:hover{
+    cursor: pointer;
+    color: var(--label-selected);
 }
 
 .checkbox-wrapper{
