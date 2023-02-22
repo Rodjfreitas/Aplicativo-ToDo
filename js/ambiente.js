@@ -27,12 +27,13 @@ function checkedInput(){
     if(checkbox.checked == true){
         label.style.color = "var(--light-tema)"
         caixaSelecao.style.backgroundColor = "var(--global-check)"
+        
     }else{
-        label.style.content = "\u2713"
-        label.style.color = "transparent"
-        caixaSelecao.style.backgroundColor = "transparent"
+        label.style.color = "var(--light-tema)"
+        caixaSelecao.style.backgroundColor = "var(--global-check)"
     }
 }
+
 
 
 
@@ -81,6 +82,7 @@ function createDivs(){
 
             checkCaixa.checked = false
             inputText.value = ""
+            inputText.focus()
 
             mostrarResumo()            
             verificarChecked()
