@@ -3,6 +3,7 @@ const imagemlua = document.querySelector('.lua')
 const divs = document.querySelectorAll('.minhas-divs')
 const resumo = document.querySelector('.resume')
 var arrayDeDivs = []
+var novos = []
 let x = 0
 
 
@@ -37,6 +38,7 @@ function checkedInput(){
 
 
 
+
 //Esta função é responsável por criar os elementos de tarefas adicionados
 function createDivs(){
     const checkCaixa = document.querySelector('#meuCheckbox')
@@ -46,6 +48,7 @@ function createDivs(){
 
     if(checkCaixa.checked == true){
         if(inputText.value != ""){
+
 
             const chk = document.createElement('div')
             chk.setAttribute('class',`checkbox-wrapper num${x}`)
@@ -86,6 +89,9 @@ function createDivs(){
 
             mostrarResumo()            
             verificarChecked()
+
+            console.log(arrayDeDivs)
+            console.log(`qtd de x inicial ${x}`)
 
         }else{
         alert('Adicione uma tarefa antes de clicar.')
@@ -276,29 +282,57 @@ function ClearChecked(){
     var mydivs = document.querySelector(`#secaoMain`)
     var labels = mydivs.getElementsByTagName('label')
     var checados = [] 
+    var naochecados =[]
+    
     
     //faz o levantamento dos índices de quais itens foram marcados e os coloca em um array
     for(var i = 0; i < labels.length; i++){
         
         var input = document.getElementById(labels[i].htmlFor)  
              
-
+        //identifica quais índices foram checados e quais não foram
         if(input.checked){ 
             checados.push(i)
                                              
-        } 
+        } else{
+            naochecados.push(i)
+        }
+
+        
+        console.log(naochecados.length)
     } 
     //exclui todos os itens marcados através dos índices indicados no array
     for(var i = 0; i < checados.length;i++){
         var j = checados[i]
         const tarefa = mydivs.querySelector(`.div${j}`)
-        tarefa.style.visibility = "none"
+        tarefa.remove()
+        //exluir arrays referente as divs apagadas
+        const index = arrayDeDivs.indexOf(tarefa)
+        if(index > -1){ 
+        arrayDeDivs.splice(index,1)        
+        }
+        
     }
+
+    for(var i = 0; i < naochecados.length; i++){
+        novos.push(i)        
+    }
+
+    x=0
+
+    console.log(novos)
+    console.log(checados)
+    console.log(checados.length)
+    
+    console.log(arrayDeDivs)
+    console.log(`qtd de x final ${x}`)
 
     
 
-}
+    
+    
 
+}
 
 
 
