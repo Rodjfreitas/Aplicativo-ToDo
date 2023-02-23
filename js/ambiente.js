@@ -5,6 +5,7 @@ const resumo = document.querySelector('.resume')
 var arrayDeDivs = []
 var novos = []
 let x = 0
+let lancamentoAnterior;
 
 
 
@@ -311,18 +312,44 @@ function ClearChecked(){
         if(index > -1){ 
         arrayDeDivs.splice(index,1)        
         }
-        
+        lancamentoAnterior = x
+        x--
     }
 
     for(var i = 0; i < naochecados.length; i++){
         novos.push(i)        
     }
 
-    x=0
+    //renomear os elementos 
+    for(var i = 0; i < arrayDeDivs.length; i++){
+        var alt = naochecados[i]
+        var mydivs = document.querySelector(`#secaoMain`)
+        var labels = mydivs.getElementsByTagName('label')
+        const divPrincipal = document.querySelector(`.minhas-divs.div${alt}`)
+        const divSecundaria = document.querySelector(`.checkbox-wrapper.num${alt}`)
+        const inputPrincipal = document.getElementById(`meuCheckbox-${alt}`)
+        const labelPrincipal = document.getElementsByTagName('label')
 
-    console.log(novos)
-    console.log(checados)
-    console.log(checados.length)
+        var input = document.getElementById(labels[i].htmlFor)  
+        
+        console.log(`valor do alt: ${alt}`)
+        if(!input.checked){
+        
+        labelPrincipal[alt].setAttribute('for',`meuCheckbox-${i}`)
+        inputPrincipal.setAttribute('id',`meuCheckbox-${i}`)
+        divSecundaria.setAttribute('class',`checkbox-wrapper num${i}`)
+        divPrincipal.setAttribute('class',`minhas-divs div${i}`)
+
+        }
+    }
+
+   
+    
+
+    console.log(`novos: ${novos}`)
+    console.log(`checados: ${checados}`)
+    console.log(`checados qtd: ${checados.length}`)
+    console.log(`não checados: ${naochecados}`)
     
     console.log(arrayDeDivs)
     console.log(`qtd de x final ${x}`)
