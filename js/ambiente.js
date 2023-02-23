@@ -320,29 +320,30 @@ function ClearChecked(){
         novos.push(i)        
     }
 
-    //renomear os elementos 
+    
+    //renomear os elementos para reordenação
     for(var i = 0; i < arrayDeDivs.length; i++){
+
         var alt = naochecados[i]
-        var mydivs = document.querySelector(`#secaoMain`)
-        var labels = mydivs.getElementsByTagName('label')
+        const mydivs = document.querySelector(`#secaoMain`)
         const divPrincipal = document.querySelector(`.minhas-divs.div${alt}`)
         const divSecundaria = document.querySelector(`.checkbox-wrapper.num${alt}`)
         const inputPrincipal = document.getElementById(`meuCheckbox-${alt}`)
         const labelPrincipal = document.getElementsByTagName('label')
 
-        var input = document.getElementById(labels[i].htmlFor)  
+          
         
         console.log(`valor do alt: ${alt}`)
-        if(!input.checked){
-        
-        labelPrincipal[alt].setAttribute('for',`meuCheckbox-${i}`)
-        inputPrincipal.setAttribute('id',`meuCheckbox-${i}`)
-        divSecundaria.setAttribute('class',`checkbox-wrapper num${i}`)
-        divPrincipal.setAttribute('class',`minhas-divs div${i}`)
-
+        if(divPrincipal !== null){
+            
+            labelPrincipal[alt-i].setAttribute('for',`meuCheckbox-${i}`)
+            inputPrincipal.setAttribute('id',`meuCheckbox-${i}`)
+            divSecundaria.setAttribute('class',`checkbox-wrapper num${i}`)
+            divPrincipal.setAttribute('class',`minhas-divs div${i}`)
+            
         }
     }
-
+    
    
     
 
