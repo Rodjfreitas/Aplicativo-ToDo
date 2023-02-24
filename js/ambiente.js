@@ -2,8 +2,9 @@ const imagemsol = document.querySelector('.sol')
 const imagemlua = document.querySelector('.lua')
 const divs = document.querySelectorAll('.minhas-divs')
 const resumo = document.querySelector('.resume')
+const divElements = document.querySelectorAll('#secaoMain')
+let temLabelChecada = false
 var arrayDeDivs = []
-var novos = []
 let x = 0
 let lancamentoAnterior;
 
@@ -36,7 +37,12 @@ function checkedInput(){
     }
 }
 
-
+//Evento de Clique automático no filtro todos para atualizar sempre que adicionado nova tarefa
+function cliqueLabelAll(){
+    const filterAll = document.querySelector('.all')
+    const cliqueEvent = new MouseEvent('click')
+    filterAll.dispatchEvent(cliqueEvent)
+}
 
 
 
@@ -44,7 +50,10 @@ function checkedInput(){
 function createDivs(){
     const checkCaixa = document.querySelector('#meuCheckbox')
     const inputText = document.querySelector('.inputTodo')    
-    const caixa = document.createElement('div')
+    const caixa = document.createElement('div')    
+
+    
+
     caixa.setAttribute('class',`minhas-divs div${x}`)
 
     if(checkCaixa.checked == true){
@@ -64,7 +73,7 @@ function createDivs(){
             
 
             const textLabel = document.createElement('label')
-            textLabel.setAttribute('class',`labelMain`)
+            textLabel.setAttribute('class',`labelMain lm${x}`)
             textLabel.setAttribute('for',`meuCheckbox-${x}`)
             textLabel.content = "\u2713"
             
@@ -86,6 +95,7 @@ function createDivs(){
 
             checkCaixa.checked = false
             inputText.value = ""
+            cliqueLabelAll()
             inputText.focus()
 
             mostrarResumo()            
@@ -96,10 +106,12 @@ function createDivs(){
 
         }else{
         alert('Adicione uma tarefa antes de clicar.')
-        checkCaixa.checked = false
+        checkCaixa.checked = false        
         inputText.focus()
         }
     }
+
+    
     
 }
 
@@ -278,18 +290,52 @@ function filtrandoCompletos(){
 }
 
 
+//Esta direciona o clique de clear completes verificando se há itens checados ou não
+function chamarExclusao(){
+    verificarTarefasSelecionada()
+
+    if(!temLabelChecada){
+        alert('Não há tarefas marcadas para exclusão.')
+    }else{
+        ClearChecked() 
+    }
+}
+
+//Esta função é responsável por verificar se existe alguma tarefa checada
+function verificarTarefasSelecionada(){
+    var mydivs = document.querySelector(`#secaoMain`)
+    var labels = mydivs.getElementsByTagName('label')
+    
+
+    for(let i = 0; i < arrayDeDivs.length;i++){
+        var input = document.getElementById(labels[i].htmlFor)
+
+        if(input.checked){
+            temLabelChecada = true
+            break
+        }
+    }
+}
+
+
+
+//Esta função é responsável por apgar as tarefas selecionadas e renomear as restantes
 function ClearChecked(){
 
     var mydivs = document.querySelector(`#secaoMain`)
     var labels = mydivs.getElementsByTagName('label')
     var checados = [] 
     var naochecados =[]
+    var novos = []
     
+
+ 
     
     //faz o levantamento dos índices de quais itens foram marcados e os coloca em um array
     for(var i = 0; i < labels.length; i++){
         
-        var input = document.getElementById(labels[i].htmlFor)  
+        var input = document.getElementById(labels[i].htmlFor)     
+        
              
         //identifica quais índices foram checados e quais não foram
         if(input.checked){ 
@@ -325,43 +371,45 @@ function ClearChecked(){
     for(var i = 0; i < arrayDeDivs.length; i++){
 
         var alt = naochecados[i]
+        var ckd = checados[i]
+        var dif = alt - ckd        
+        var newOrder = novos[i]
         const mydivs = document.querySelector(`#secaoMain`)
         const divPrincipal = document.querySelector(`.minhas-divs.div${alt}`)
         const divSecundaria = document.querySelector(`.checkbox-wrapper.num${alt}`)
         const inputPrincipal = document.getElementById(`meuCheckbox-${alt}`)
-        const labelPrincipal = document.getElementsByTagName('label')
+        const labelPrincipal = document.querySelector(`.labelMain.lm${alt}`)
 
           
         
         console.log(`valor do alt: ${alt}`)
         if(divPrincipal !== null){
             
-            labelPrincipal[alt-i].setAttribute('for',`meuCheckbox-${i}`)
-            inputPrincipal.setAttribute('id',`meuCheckbox-${i}`)
-            divSecundaria.setAttribute('class',`checkbox-wrapper num${i}`)
-            divPrincipal.setAttribute('class',`minhas-divs div${i}`)
+            labelPrincipal.setAttribute('class',`labelMain lm${newOrder}`)
+            labelPrincipal.setAttribute('for',`meuCheckbox-${newOrder}`)
+            inputPrincipal.setAttribute('id',`meuCheckbox-${newOrder}`)
+            divSecundaria.setAttribute('class',`checkbox-wrapper num${newOrder}`)
+            divPrincipal.setAttribute('class',`minhas-divs div${newOrder}`)
             
         }
+
+        //volta os itens checados para falso
+        temLabelChecada = false
     }
     
    
     
-
+    /*console.log(`qtd n° array: ${arrayDeDivs.length}`)
     console.log(`novos: ${novos}`)
     console.log(`checados: ${checados}`)
     console.log(`checados qtd: ${checados.length}`)
     console.log(`não checados: ${naochecados}`)
     
     console.log(arrayDeDivs)
-    console.log(`qtd de x final ${x}`)
-
-    
-
-    
+    console.log(`qtd de x final ${x}`) */  
     
 
 }
-
 
 
 
