@@ -370,9 +370,7 @@ function ClearChecked(){
     //renomear os elementos para reordenação
     for(var i = 0; i < arrayDeDivs.length; i++){
 
-        var alt = naochecados[i]
-        var ckd = checados[i]
-        var dif = alt - ckd        
+        var alt = naochecados[i]       
         var newOrder = novos[i]
         const mydivs = document.querySelector(`#secaoMain`)
         const divPrincipal = document.querySelector(`.minhas-divs.div${alt}`)
@@ -393,11 +391,12 @@ function ClearChecked(){
             
         }
 
-        //volta os itens checados para falso
-        temLabelChecada = false
+
     }
     
-   
+    //volta os itens checados para falso
+    temLabelChecada = false
+    cliqueLabelAll()
     
     /*console.log(`qtd n° array: ${arrayDeDivs.length}`)
     console.log(`novos: ${novos}`)
