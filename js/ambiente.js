@@ -22,6 +22,8 @@ imagemlua.addEventListener('click', function(){
     
 })
 
+
+
 //Esta função estiliza o circulo da caixa principal
 function checkedInput(){
     const checkbox = document.querySelector("#meuCheckbox")
@@ -37,6 +39,8 @@ function checkedInput(){
     }
 }
 
+
+
 //Evento de Clique automático no filtro todos para atualizar sempre que adicionado nova tarefa
 function cliqueLabelAll(){
     const filterAll = document.querySelector('.all')
@@ -49,41 +53,40 @@ function cliqueLabelAll(){
 //Esta função é responsável por criar os elementos de tarefas adicionados
 function createDivs(){
     const checkCaixa = document.querySelector('#meuCheckbox')
-    const inputText = document.querySelector('.inputTodo')    
-    const caixa = document.createElement('div')    
-
+    const inputText = document.querySelector('.inputTodo') 
     
-
+    //cria a div que armazena todo conteúdo de cada tarefa inserida
+    const caixa = document.createElement('div')
     caixa.setAttribute('class',`minhas-divs div${x}`)
 
     if(checkCaixa.checked == true){
         if(inputText.value != ""){
-
-
+            //cria a div que armazena a label e o input
             const chk = document.createElement('div')
             chk.setAttribute('class',`checkbox-wrapper num${x}`)
-            
 
+            //cria o input
             const selecao = document.createElement('input')
             selecao.setAttribute('id',`meuCheckbox-${x}`)
             selecao.setAttribute('class','meuCheckbox')
             selecao.setAttribute('type','checkbox')
-            selecao.setAttribute('onclick','colorirOption()')
+            selecao.setAttribute('onclick','colorirOption()') 
 
-            
-
+            //cria label
             const textLabel = document.createElement('label')
             textLabel.setAttribute('class',`labelMain lm${x}`)
             textLabel.setAttribute('for',`meuCheckbox-${x}`)
             textLabel.content = "\u2713"
-            
+
+            //adiciona uma valor a x para histórico da próxima tarefa criadad
             x++
 
+            //armazena texto inserido na caixa principal
             const textoInput = document.createElement('p')
             textoInput.setAttribute('class','inputTodo')
             textoInput.innerText = inputText.value
 
-
+            //Inclui todos os elementos criados na div principal e no array
             chk.appendChild(textLabel)
             chk.appendChild(selecao)
             caixa.appendChild(chk)
@@ -93,6 +96,7 @@ function createDivs(){
             const secaoMain = document.querySelector('#secaoMain')
             secaoMain.appendChild(caixa)
 
+            //atualiza as informações
             checkCaixa.checked = false
             inputText.value = ""
             cliqueLabelAll()
@@ -105,15 +109,14 @@ function createDivs(){
             console.log(`qtd de x inicial ${x}`)
 
         }else{
-        alert('Adicione uma tarefa antes de clicar.')
-        checkCaixa.checked = false        
-        inputText.focus()
+            //mensagem de erro quando nenhum texto é inserido na caixa principal
+            alert('Adicione uma tarefa antes de clicar.')
+            checkCaixa.checked = false        
+            inputText.focus()
         }
-    }
-
-    
-    
+    }    
 }
+
 
 
 //Esta função atribui uma cor para uma dos filtros selecionados no rodapé da página
@@ -128,10 +131,9 @@ function colorirLabel(){
         }else{
             labels[i].style.color = ""
         }
-    }  
-
-
+    } 
 }
+
 
 
 //Esta função atribui um estilo para quando clica no circulo de alguma tarefa inserida
@@ -158,9 +160,7 @@ function colorirOption(){
     }  
 
     verificarChecked()
-
 }
-
 
 
 
@@ -173,13 +173,16 @@ function mostrarResumo(){
     }
 }
 
+
+
 //Esta função atualiza a quantidade total de itens adicionados à lista
 function atualizarResume(n){    
     let qtdItens = document.querySelector('.qtdResumo')    
     qtdItens.innerText = `${Number(arrayDeDivs.length - n)} items left`
 }
 
-   
+
+
 //função que adiciona um valor de contagem para ser subtraido do total de itens quando um item for checked
 function verificarChecked(){
     var mydivs = document.querySelector(`#secaoMain`)
@@ -194,8 +197,9 @@ function verificarChecked(){
         }
         atualizarResume(contagem)
     } 
-
 }
+
+
 
 //Parâmetro para as opções de filtros
 function filtros(opcoes){
@@ -205,6 +209,8 @@ function filtros(opcoes){
         return false
     }
 }
+
+
 
 //selecionando a opção de filtro Todos
 function filtrandoTudo(){
@@ -227,9 +233,9 @@ function filtrandoTudo(){
 
     }
     //atualiza a contagem
-    verificarChecked()
- 
+    verificarChecked() 
 }
+
 
 
 //selecionando a opção de filtro Ativos
@@ -256,9 +262,10 @@ function filtrandoAtivos(){
 
     }
     //atualiza a contagem
-    verificarChecked()
- 
+    verificarChecked() 
 }
+
+
 
 //selecionando a opção de filtro completos
 function filtrandoCompletos(){
@@ -285,9 +292,9 @@ function filtrandoCompletos(){
     }
 
     //atualiza a contagem (neste caso apenas os itens que foram marcados)    
-    qtdItens.innerText = `${Number(contagem)} items completed`
- 
+    qtdItens.innerText = `${Number(contagem)} items completed` 
 }
+
 
 
 //Esta direciona o clique de clear completes verificando se há itens checados ou não
@@ -300,6 +307,8 @@ function chamarExclusao(){
         ClearChecked() 
     }
 }
+
+
 
 //Esta função é responsável por verificar se existe alguma tarefa checada
 function verificarTarefasSelecionada(){
@@ -396,18 +405,8 @@ function ClearChecked(){
     
     //volta os itens checados para falso
     temLabelChecada = false
+    
     cliqueLabelAll()
-    
-    /*console.log(`qtd n° array: ${arrayDeDivs.length}`)
-    console.log(`novos: ${novos}`)
-    console.log(`checados: ${checados}`)
-    console.log(`checados qtd: ${checados.length}`)
-    console.log(`não checados: ${naochecados}`)
-    
-    console.log(arrayDeDivs)
-    console.log(`qtd de x final ${x}`) */  
-    
-
 }
 
 
