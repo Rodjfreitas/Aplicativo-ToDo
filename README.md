@@ -5,28 +5,32 @@ Outro objetivo é a evolução e desenvolvimento de habilidades em javascript. E
 
 
 
-
-    /*
-    //renomear os elementos 
-    for(var i = 0; i < arrayDeDivs.length; i++){
-        var alt = naochecados[i]
-        var mydivs = document.querySelector(`#secaoMain`)
-        var labels = mydivs.getElementsByTagName('label')
-        const divPrincipal = document.querySelector(`.minhas-divs.div${alt}`)
-        const divSecundaria = document.querySelector(`.checkbox-wrapper.num${alt}`)
-        const inputPrincipal = document.getElementById(`meuCheckbox-${alt}`)
-        const labelPrincipal = document.getElementsByTagName('label')
-
-        var input = document.getElementById(labels[i].htmlFor)  
-        
-        console.log(`valor do alt: ${alt}`)
-        if(!input.checked){
-        
-        labelPrincipal[alt].setAttribute('for',`meuCheckbox-${i}`)
-        inputPrincipal.setAttribute('id',`meuCheckbox-${i}`)
-        divSecundaria.setAttribute('class',`checkbox-wrapper num${i}`)
-        divPrincipal.setAttribute('class',`minhas-divs div${i}`)
-
-        }
-    }
-    */
+function arrastarDivs(){
+const DIV = document.querySelector('.minhas-divs')
+// Adiciona o evento de arrastar para as DIVs
+document.querySelectorAll('[draggable="true"]').forEach(div => {
+    div.addEventListener('dragstart', e => {
+      e.dataTransfer.setData('text/plain', e.target.id);
+      e.target.classList.add('dragging');
+    });
+  
+    div.addEventListener('dragend', e => {
+      e.target.classList.remove('dragging');
+    });
+  });
+  
+  // Adiciona o evento de soltar para a área onde as DIVs podem ser soltas
+  const dropArea = document.getElementById('drop-area');
+  dropArea.addEventListener('dragover', e => {
+    e.preventDefault();
+  });
+  
+  dropArea.addEventListener('drop', e => {
+    e.preventDefault();
+    const droppedId = e.dataTransfer.getData('text/plain');
+    const droppedElement = document.getElementById(droppedId);
+    const dropTarget = e.target.closest('.drop-target');
+    dropTarget.insertBefore(droppedElement, e.target);
+  });
+  
+}

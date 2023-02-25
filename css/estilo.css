@@ -101,6 +101,7 @@ img:hover{
 
 .minhas-divs{
     border-bottom: 0.5px solid var(--global-border-botton);
+    cursor: grab;
 }
 
 
@@ -127,6 +128,7 @@ img:hover{
 .textOpt label{
     padding: 0px 5px;
     font-size: 15px;
+    z-index: 1;
 }
 
 .textOpt{
@@ -194,6 +196,8 @@ footer {
 footer a { 
     color: hsl(228, 45%, 44%); 
 }
+
+
 
 
 
