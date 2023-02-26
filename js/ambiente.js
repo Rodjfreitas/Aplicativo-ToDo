@@ -2,11 +2,12 @@ const imagemsol = document.querySelector('.sol')
 const imagemlua = document.querySelector('.lua')
 const divs = document.querySelectorAll('.minhas-divs')
 const resumo = document.querySelector('.resume')
-const divElements = document.getElementById('#secaoMain')
 let temLabelChecada = false
 var arrayDeDivs = []
 let x = 0
 let lancamentoAnterior;
+
+
 
 
 //Os dois eventos abaixo são responsáveis pela alteração de temas
@@ -56,8 +57,7 @@ function createDivs(){
     //cria a div que armazena todo conteúdo de cada tarefa inserida
     const caixa = document.createElement('div')
     caixa.setAttribute('class',`minhas-divs div${x}`)
-    caixa.setAttribute('draggable','true')
-    caixa.setAttribute('dragstart',dragStart)
+    caixa.setAttribute('draggable',true)
     
 
     if(checkCaixa.checked == true){
@@ -95,10 +95,8 @@ function createDivs(){
             arrayDeDivs.push(caixa)
 
             const secaoMain = document.querySelector('#secaoMain')
-             //eventos para mover e arrastar na div secaoMain
-            secaoMain.setAttribute('drop',drop)
-            secaoMain.setAttribute('dragover',allowDrop) 
             secaoMain.appendChild(caixa)
+
 
             //atualiza as informações
             checkCaixa.checked = false
@@ -412,31 +410,46 @@ function ClearChecked(){
 }
 
 
+const boxes = document.querySelectorAll('.minhas-divs');
 
+let currentBox = null;
 
-
-
-function dragStart(event){
-    //define o id da div sendo arrastada
-    event.dataTransfer.setData('text/plain', event.target.id)
+for (let i = 0; i < boxes.length; i++) {
+  const box = boxes[i];
+  
+  box.addEventListener('dragstart', function() {
+    currentBox = box;
+    setTimeout(function() {
+      box.style.display = 'none';
+    }, 0);
+  });
+  
+  box.addEventListener('dragend', function() {
+    currentBox.style.display = 'block';
+    currentBox = null;
+  });
+  
+  box.addEventListener('dragover', function(e) {
+    e.preventDefault();
+  });
+  
+  box.addEventListener('dragenter', function(e) {
+    e.preventDefault();
+    this.style.border = '3px dashed #333';
+  });
+  
+  box.addEventListener('dragleave', function() {
+    this.style.border = 'none';
+  });
+  
+  box.addEventListener('drop', function() {
+    this.style.border = 'none';
+    if (currentBox !== this) {
+      const temp = this.innerHTML;
+      this.innerHTML = currentBox.innerHTML;
+      currentBox.innerHTML = temp;
+    }
+  });
 }
-
-
-
-function drop(event) {
-    event.preventDefault()
-
-    //pega o id da div sendo arrastada
-    const data = event.dataTransfer.getData('text/plain')
-
-    //move a div arrastada para o destino
-    const element =document.getElementById(data)
-    event.target.appendChild(element)
-}
-
-function allowDrop(event){
-    event.preventDefault()
-}
-
 
 

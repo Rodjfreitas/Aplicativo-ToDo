@@ -101,8 +101,9 @@ img:hover{
 
 .minhas-divs{
     border-bottom: 0.5px solid var(--global-border-botton);
-    cursor: grab;
+    cursor: move;
 }
+
 
 
 .light .list, .light .minhas-divs, .light .resume{
@@ -210,6 +211,8 @@ footer a {
     }
 
     section,#secaoMain{
+        display: flex;
+        flex-direction: column;
         width: 320px;
     }
     
