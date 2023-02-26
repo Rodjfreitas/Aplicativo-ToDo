@@ -2,6 +2,7 @@ const imagemsol = document.querySelector('.sol')
 const imagemlua = document.querySelector('.lua')
 const divs = document.querySelectorAll('.minhas-divs')
 const resumo = document.querySelector('.resume')
+const arrastarText = document.querySelector('.arrastar')
 let temLabelChecada = false
 var arrayDeDivs = []
 let x = 0
@@ -168,8 +169,10 @@ function colorirOption(){
 function mostrarResumo(){
     if(arrayDeDivs.length > 0){
         resumo.style.display = "flex"
+        arrastarText.style.display = "block"
     }else{
         resumo.style.display = "none"
+        arrastarText.style.display = "none"
     }
 }
 
